@@ -7,6 +7,7 @@
             font-weight: 700;
             font-size: 100px;
             fill: #FFFFFF;
+            letter-spacing: -0.1em;
         }
     </style>
     <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" class="logo-text">JD</text>
