@@ -7,7 +7,7 @@ const projects = [
   {
     title: "This Website",
     description: "A responsive portfolio website built with Next.js, Tailwind CSS, and Framer Motion.",
-    image: "/project1.jpg",
+    image: "/jd-logo.svg",
     github: "https://github.com/jdefalco715/johns-portfolio",
     demo: "",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"]
