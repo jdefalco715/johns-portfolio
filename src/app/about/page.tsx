@@ -39,27 +39,68 @@ export default function About() {
               creating smooth user experiences.
             </p>
 
+            <h2 className="text-2xl font-semibold mt-8 mb-4">Education</h2>
+            <p className="text-lg">
+              I'm a graduate of Marist University with a B.S. in Computer Science, with a concentration in Software Development and minors in Information Systems and Information Technology.
+            </p>
+
+            <p className="text-lg">
+              In the spring semester of 2018 I studied abroad at Dublin Business School in Dublin, Ireland.
+            </p>
+
             <h2 className="text-2xl font-semibold mt-8 mb-4">Skills</h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
                 <h3 className="font-medium mb-2">Frontend</h3>
                 <ul className="list-disc list-inside space-y-1">
-                  <li>React / Next.js</li>
+                  <li>HTML5</li>
+                  <li>CSS3</li>
+                  <li>JavaScript</li>
                   <li>TypeScript</li>
+                  <li>React / Next.js</li>
                   <li>Tailwind CSS</li>
-                  <li>HTML5 / CSS3</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium mb-2">E-Commerce</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Salesforce Commerce Cloud</li>
+                  <li>Salesforce Commerce Reference Architecture</li>
+                  <li>Shopify</li>
+                  <li>WordPress</li>
+                  <li>SEO</li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-medium mb-2">Tools & Others</h3>
                 <ul className="list-disc list-inside space-y-1">
                   <li>Git / GitHub</li>
+                  <li>npm / yarn</li>
+                  <li>ADA Compliance</li>
+                  <li>Microsoft Office</li>
                   <li>VS Code</li>
-                  <li>Responsive Design</li>
-                  <li>UI/UX Principles</li>
                 </ul>
               </div>
             </div>
+
+            <h2 className="text-2xl font-semibold mt-8 mb-4">What I'm Learning</h2>
+
+            <p className="text-lg">
+              I'm currently studying for an AWS Cloud Architecting Fundamentals certification, with plans to pursue a Developer Associate certification in the future. 
+              Cloud Engineering is a field I'm very interested in, and I'm looking forward to learning more about it.
+            </p>
+
+            <p className="text-lg">
+              If there's anything I'm not familiar with, I'm always looking to learn more. If you have any recommendations, please let me know on my contact page!
+            </p>
+
+            <h2 className="text-2xl font-semibold mt-8 mb-4">What I Love</h2>
+
+            <p className="text-lg">
+              Outside of work, I enjoy cooking, reading, and spending time with my family and friends. 
+              I'm a big skier and snowboarder and try to hit the slopes as much as possible. 
+              I also enjoy playing golf, traveling, and going to concerts. 
+            </p>
           </motion.div>
         </motion.section>
       </main>
