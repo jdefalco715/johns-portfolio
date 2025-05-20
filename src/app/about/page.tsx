@@ -83,6 +83,17 @@ export default function About() {
               </div>
             </div>
 
+            <h2 className="text-2xl font-semibold mt-8 mb-4">What I'm Learning</h2>
+
+            <p className="text-lg">
+              I'm currently studying for an AWS Cloud Architecting Fundamentals certification, with plans to pursue a Developer Associate certification in the future. 
+              Cloud Engineering is a field I'm very interested in, and I'm looking forward to learning more about it.
+            </p>
+
+            <p className="text-lg">
+              If there's anything I'm not familiar with, I'm always looking to learn more. If you have any recommendations, please let me know on my contact page!
+            </p>
+
             <h2 className="text-2xl font-semibold mt-8 mb-4">What I Love</h2>
 
             <p className="text-lg">
