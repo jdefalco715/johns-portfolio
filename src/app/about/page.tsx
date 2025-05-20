@@ -86,7 +86,7 @@ export default function About() {
             <h2 className="text-2xl font-semibold mt-8 mb-4">What I'm Learning</h2>
 
             <p className="text-lg">
-              I'm currently studying for an AWS Cloud Architecting Fundamentals certification, with plans to pursue a Developer Associate certification in the future. 
+              I'm currently studying for an AWS Cloud Practitioner Foundation certification, with plans to pursue a Developer Associate certification in the future. 
               Cloud Engineering is a field I'm very interested in, and I'm looking forward to learning more about it.
             </p>
 
