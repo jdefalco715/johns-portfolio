@@ -48,12 +48,12 @@ export default function Contact() {
             try {
                 const emailData = {
                     to: 'john.defalco321@gmail.com',
-                    from: '', // TODO: Add your email service sender address here
+                    from: '', // TODO: Add email service sender address here
                     subject: formData.get('subject'),
                     text: `Name: ${formData.get('name')}\n\nMessage: ${formData.get('message')}\n\nEmail: ${formData.get('email')}`,
                 };
 
-                // TODO: Replace with your email service API call
+                // TODO: Replace with email service API call
                 // Example using fetch:
                 // const response = await fetch('/api/send-email', {
                 //     method: 'POST',
@@ -102,6 +102,11 @@ export default function Contact() {
                                 I'm always looking to learn more, and I'm always looking to help. 
                                 If you have any questions, please don't hesitate to reach out.
                             </p>
+
+                            <p className="text-lg">
+                                Additionally if you have any recommendations for my website, please let me know!
+                                Feedback is always welcome!
+                            </p>
                             
                             <ul className="space-y-4">
                                 <li className="flex items-center gap-3">
@@ -119,20 +124,20 @@ export default function Contact() {
                                 <li className="flex items-center gap-3">
                                     <FaLinkedin className="text-xl" />
                                     <a href="https://www.linkedin.com/in/john-s-defalco/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
-                                        LinkedIn Profile
+                                        LinkedIn
                                     </a>
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <FaGithub className="text-xl" />
                                     <a href="https://github.com/jdefalco715" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
-                                        GitHub Profile
+                                        GitHub
                                     </a>
                                 </li>
                             </ul>
                         </div>
 
-                        {/* Right Column - Contact Form */}
-                        <div className="p-6 rounded-lg shadow-md">
+                        {/* Right Column - Contact Form (Commented out for future implementation) */}
+                        {/* <div className="p-6 rounded-lg shadow-md">
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
@@ -199,7 +204,7 @@ export default function Contact() {
                                     </p>
                                 )}
                             </form>
-                        </div>
+                        </div> */}
                     </div>
                 </motion.section>
             </main>
