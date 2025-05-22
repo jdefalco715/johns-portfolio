@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { useState } from 'react';
+/*import { useState } from 'react';*/
 
 export default function Contact() {
-    const [errors, setErrors] = useState({
+    /*const [errors, setErrors] = useState({
         name: '',
         subject: '',
         message: '',
@@ -82,7 +82,7 @@ export default function Contact() {
                 }, 5000);
             }
         }
-    };
+    };*/
 
     return (
         <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -99,8 +99,8 @@ export default function Contact() {
                         {/* Left Column - Contact Information */}
                         <div className="space-y-6">
                             <p className="text-lg">
-                                I'm always looking to learn more, and I'm always looking to help. 
-                                If you have any questions, please don't hesitate to reach out.
+                                I&apos;m always looking to learn more, and I&apos;m always looking to help. 
+                                If you have any questions, please don&apos;t hesitate to reach out.
                             </p>
 
                             <p className="text-lg">

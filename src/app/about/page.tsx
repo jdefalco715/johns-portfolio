@@ -28,20 +28,20 @@ export default function About() {
             className="space-y-4"
           >
             <p className="text-lg">
-              Based in Hoboken, NJ, I'm a passionate front-end developer with a keen eye for creating beautiful and functional web experiences. 
+              Based in Hoboken, NJ, I&apos;m a passionate front-end developer with a keen eye for creating beautiful and functional web experiences. 
               My journey in web development started with a curiosity about how websites work, which evolved into a deep 
               appreciation for the art and science of building user interfaces.
             </p>
             
             <p className="text-lg">
               Currently working at Catalyst Brands, I focus on creating responsive, accessible, and performant web 
-              applications. I'm particularly interested in modern JavaScript frameworks, CSS architecture, and 
+              applications. I&apos;m particularly interested in modern JavaScript frameworks, CSS architecture, and 
               creating smooth user experiences.
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">Education</h2>
             <p className="text-lg">
-              I'm a graduate of Marist University with a B.S. in Computer Science, with a concentration in Software Development and minors in Information Systems and Information Technology.
+              I&apos;m a graduate of Marist University with a B.S. in Computer Science, with a concentration in Software Development and minors in Information Systems and Information Technology.
             </p>
 
             <p className="text-lg">
@@ -83,22 +83,22 @@ export default function About() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">What I'm Learning</h2>
+            <h2 className="text-2xl font-semibold mt-8 mb-4">What I&apos;m Learning</h2>
 
             <p className="text-lg">
-              I'm currently studying for an AWS Cloud Practitioner Foundation certification, with plans to pursue a Developer Associate certification in the future. 
-              Cloud Engineering is a field I'm very interested in, and I'm looking forward to learning more about it.
+              I&apos;m currently studying for an AWS Cloud Practitioner Foundation certification, with plans to pursue a Developer Associate certification in the future. 
+              Cloud Engineering is a field I&apos;m very interested in, and I&apos;m looking forward to learning more about it.
             </p>
 
             <p className="text-lg">
-              If there's anything I'm not familiar with, I'm always looking to learn more. If you have any recommendations, please let me know on my contact page!
+              If there&apos;s anything I&apos;m not familiar with, I&apos;m always looking to learn more. If you have any recommendations, please let me know on my contact page!
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">What I Love</h2>
 
             <p className="text-lg">
               Outside of work, I enjoy cooking, reading, and spending time with my family and friends. 
-              I'm a big skier and snowboarder and try to hit the slopes as much as possible. 
+              I&apos;m a big skier and snowboarder and try to hit the slopes as much as possible. 
               I also enjoy playing golf, traveling, and going to concerts. 
             </p>
           </motion.div>

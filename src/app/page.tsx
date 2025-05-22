@@ -1,6 +1,6 @@
 'use client';
 
-import Image from "next/image";
+/*import Image from "next/image";*/
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -43,7 +43,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="text-lg mb-6"
               >
-                <span>"</span>I'm a front end developer with a passion for creating beautiful and functional websites. I'm currently working as a front end developer at Catalyst Brands.<span>"</span>
+                <span className="text-md">&quot;</span>I&apos;m a front end developer with a passion for creating beautiful and functional websites. I&apos;m currently working as a front end developer at Catalyst Brands.<span className="text-md">&quot;</span>
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -71,58 +71,7 @@ export default function Home() {
         </motion.section>
       </main>
 
-      <motion.footer 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.6 }}
-        className="mt-16 flex gap-[24px] flex-wrap items-center"
-      >
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </motion.footer>
+      
     </div>
   );
 }

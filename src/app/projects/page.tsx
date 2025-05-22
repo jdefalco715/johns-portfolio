@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -44,10 +45,12 @@ export default function Projects() {
                             className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                         >
                             <div className="relative h-48">
-                                <img 
+                                <Image 
                                     src={project.image} 
                                     alt={project.title}
-                                    className="w-full h-full object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                             </div>
                             <div className="p-6">
