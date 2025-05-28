@@ -89,25 +89,25 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Dropdown */}
-        <div className={`md:hidden absolute w-full left-0 z-50 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'} transition-all duration-300 ease-in-out`}>
-          <div className={`px-2 pt-2 pb-3 space-y-1 sm:px-3 rounded-lg bg-white/40  ${ isScrolled ? 'bg-blur-none' : ' backdrop-blur-md shadow-lg' }`}>
-            <ScrollLink to="home" smooth={true} duration={500}>
+        <div className={`md:hidden fixed inset-x-0 top-16 z-[60] ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'} transition-all duration-300 ease-in-out`}>
+          <div className="flex flex-col px-2 pt-2 pb-3 space-y-1 sm:px-3 rounded-lg bg-white dark:bg-black shadow-lg">
+            <ScrollLink to="home" className='m-2' smooth={true} duration={500}>
               Home
             </ScrollLink>
-            <ScrollLink to="about" smooth={true} duration={500}>
+            <ScrollLink to="about" className='m-2' smooth={true} duration={500}>
               About
             </ScrollLink>
-            <ScrollLink to="projects" smooth={true} duration={500}>
+            <ScrollLink to="projects" className='m-2' smooth={true} duration={500}>
               Projects
             </ScrollLink>
-            <ScrollLink to="contact" smooth={true} duration={500}>
+            <ScrollLink to="contact" className='m-2 mb-5' smooth={true} duration={500}>
               Contact
             </ScrollLink>
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 border border-solid border-white/[1] w-min px-3 py-2 rounded-full text-base font-medium text-white-700"
+              className="flex items-center gap-2 border border-solid border-white/[1] w-min px-3 py-2 rounded-full text-base font-medium text-white-700 mb-2"
             >
               <Image
                 src="/file.svg"

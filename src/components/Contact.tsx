@@ -117,7 +117,7 @@ export default function Contact() {
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <FaPhone className="text-xl" />
-                                    <a href="tel:+2014210630" className="hover:text-blue-600 transition-colors">
+                                    <a href="tel:+12014210630" className="hover:text-blue-600 transition-colors">
                                         (201) 421-0630
                                     </a>
                                 </li>
