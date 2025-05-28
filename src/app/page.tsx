@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-black">
       <main className="flex flex-col gap-8 max-w-4xl">
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
@@ -14,12 +14,12 @@ export default function Home() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="hero-section font-[family-name:var(--font-montserrat)]"
         >
-          <div className="hero-content">
+          <div className="hero-content max-w-sm">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              className="text-content w-1/2"
+              className="text-content flex flex-col"
             >
               <motion.h1 
                 initial={{ opacity: 0 }}
@@ -43,7 +43,8 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="text-lg mb-6"
               >
-                <span className="text-md">&quot;</span>I&apos;m a front end developer with a passion for creating beautiful and functional websites. I&apos;m currently working as a front end developer at Catalyst Brands.<span className="text-md">&quot;</span>
+                I&apos;m a front end developer with a passion for creating beautiful and functional websites. 
+                I&apos;m currently working as a front end developer at Catalyst Brands.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -54,9 +55,9 @@ export default function Home() {
                 <Link href="/projects" className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
                   View Projects
                 </Link>
-                <button className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
+                <Link href="/contact" className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
                   Contact Me
-                </button>
+                </Link>
               </motion.div>
             </motion.div>
             <motion.div 
