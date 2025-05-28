@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,30 +41,18 @@ export default function Navbar() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/" 
-              className="text-sm font-medium text-white-900 hover:text-white-600 transition-colors"
-            >
+            <ScrollLink to="home" smooth={true} duration={500}>
               Home
-            </Link>
-            <Link 
-              href="/about" 
-              className="text-sm font-medium text-white-900 hover:text-white-600 transition-colors"
-            >
+            </ScrollLink>
+            <ScrollLink to="about" smooth={true} duration={500}>
               About
-            </Link>
-            <Link 
-              href="/projects" 
-              className="text-sm font-medium text-white-900 hover:text-white-600 transition-colors"
-            >
+            </ScrollLink>
+            <ScrollLink to="projects" smooth={true} duration={500}>
               Projects
-            </Link>
-            <Link 
-              href="/contact" 
-              className="text-sm font-medium text-white-900 hover:text-white-600 transition-colors"
-            >
+            </ScrollLink>
+            <ScrollLink to="contact" smooth={true} duration={500}>
               Contact
-            </Link>
+            </ScrollLink>
             <a
               href="/resume.pdf"
               target="_blank"
@@ -102,40 +91,23 @@ export default function Navbar() {
         {/* Mobile Menu Dropdown */}
         <div className={`md:hidden absolute w-full left-0 z-50 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'} transition-all duration-300 ease-in-out`}>
           <div className={`px-2 pt-2 pb-3 space-y-1 sm:px-3 rounded-lg bg-white/40  ${ isScrolled ? 'bg-blur-none' : ' backdrop-blur-md shadow-lg' }`}>
-            <Link 
-              href="/" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+            <ScrollLink to="home" smooth={true} duration={500}>
               Home
-            </Link>
-            <Link 
-              href="/about" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+            </ScrollLink>
+            <ScrollLink to="about" smooth={true} duration={500}>
               About
-            </Link>
-            <Link 
-              href="/projects" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+            </ScrollLink>
+            <ScrollLink to="projects" smooth={true} duration={500}>
               Projects
-            </Link>
-            <Link 
-              href="/contact" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+            </ScrollLink>
+            <ScrollLink to="contact" smooth={true} duration={500}>
               Contact
-            </Link>
+            </ScrollLink>
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 border border-solid border-white/[1] w-min px-3 py-2 rounded-full text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
             >
               <Image
                 src="/file.svg"
