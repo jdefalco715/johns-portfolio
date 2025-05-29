@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 /*import { useState } from 'react';*/
 
 export default function Contact() {
+    const [sectionRef, isIntersecting] = useIntersectionObserver();
+
     /*const [errors, setErrors] = useState({
         name: '',
         subject: '',
@@ -88,8 +91,9 @@ export default function Contact() {
         <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
             <main className="flex flex-col gap-8 max-w-6xl">
                 <motion.section 
+                    ref={sectionRef}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    animate={isIntersecting ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className="space-y-6"
                 >

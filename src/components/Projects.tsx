@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Image from 'next/image';
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const projects = [
   {
@@ -17,18 +18,21 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [sectionRef, isIntersecting] = useIntersectionObserver();
+
   return (
     <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-8">
             <motion.section 
+            ref={sectionRef}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isIntersecting ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="space-y-6"
             >
                 <motion.h1 
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    animate={isIntersecting ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-4xl font-bold"
                 >
@@ -40,7 +44,7 @@ export default function Projects() {
                         <motion.div
                             key={project.title}
                             initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            animate={isIntersecting ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="p-6 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                         >

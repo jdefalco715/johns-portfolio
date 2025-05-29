@@ -1,20 +1,24 @@
 'use client';
 
 import { motion } from "framer-motion";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function About() {
+  const [sectionRef, isIntersecting] = useIntersectionObserver();
+
   return (
     <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8">
         <motion.section 
+          ref={sectionRef}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isIntersecting ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="space-y-6"
         >
           <motion.h1 
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={isIntersecting ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl font-bold"
           >
@@ -23,7 +27,7 @@ export default function About() {
           
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={isIntersecting ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 relative"
           >
