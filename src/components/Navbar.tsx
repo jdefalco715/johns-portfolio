@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,9 +27,17 @@ export default function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleNavClick = () => {
+    closeMobileMenu();
+  };
+
   return (
     <nav 
-      className={`sticky top-0 z-50 transition-all duration-200 ${ isScrolled ? 'bg-white/40 backdrop-blur-sm shadow-sm' : 'bg-transparent' }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 font-[family-name:var(--font-geist-sans)] ${ isScrolled ? 'bg-white/40 backdrop-blur-sm shadow-sm' : 'bg-transparent' }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
@@ -39,36 +48,24 @@ export default function Navbar() {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/" 
-              className="text-sm font-medium text-white-900 hover:text-white-600 transition-colors"
-            >
+          <div className="hidden md:flex items-center space-x-8 text-base text-white">
+            <ScrollLink to="home" smooth={true} duration={500} className='cursor-pointer hover:text-gray-200' offset={-20}>
               Home
-            </Link>
-            <Link 
-              href="/about" 
-              className="text-sm font-medium text-white-900 hover:text-white-600 transition-colors"
-            >
+            </ScrollLink>
+            <ScrollLink to="about" smooth={true} duration={500} className='cursor-pointer hover:text-gray-200'>
               About
-            </Link>
-            <Link 
-              href="/projects" 
-              className="text-sm font-medium text-white-900 hover:text-white-600 transition-colors"
-            >
+            </ScrollLink>
+            <ScrollLink to="projects" smooth={true} duration={500} className='cursor-pointer hover:text-gray-200'>
               Projects
-            </Link>
-            <Link 
-              href="/contact" 
-              className="text-sm font-medium text-white-900 hover:text-white-600 transition-colors"
-            >
+            </ScrollLink>
+            <ScrollLink to="contact" smooth={true} duration={500} className='cursor-pointer hover:text-gray-200'>
               Contact
-            </Link>
+            </ScrollLink>
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors px-4 py-2 hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent"
+              className="flex items-center gap-2 rounded-full cursor-pointer border border-solid border-black/[.08] dark:border-white/[.145] transition-colors px-4 py-2 hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent"
             >
               <Image
                 src="/file.svg"
@@ -99,43 +96,34 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* Mobile Menu Backdrop */}
+        {isMobileMenuOpen && (
+          <div 
+            className="fixed inset-0 z-[100]"
+            onClick={closeMobileMenu}
+          />
+        )}
+
         {/* Mobile Menu Dropdown */}
-        <div className={`md:hidden absolute w-full left-0 z-50 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'} transition-all duration-300 ease-in-out`}>
-          <div className={`px-2 pt-2 pb-3 space-y-1 sm:px-3 rounded-lg bg-white/40  ${ isScrolled ? 'bg-blur-none' : ' backdrop-blur-md shadow-lg' }`}>
-            <Link 
-              href="/" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+        <div className={`md:hidden fixed inset-x-0 top-16 z-[101] ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'} transition-all duration-300 ease-in-out`}>
+          <div className="flex flex-col px-2 pt-2 pb-3 space-y-1 sm:px-3 rounded-lg bg-white dark:bg-black shadow-lg">
+            <ScrollLink to="home" className='m-2' smooth={true} duration={500} onClick={handleNavClick} offset={-90}>
               Home
-            </Link>
-            <Link 
-              href="/about" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+            </ScrollLink>
+            <ScrollLink to="about" className='m-2' smooth={true} duration={500} onClick={handleNavClick}>
               About
-            </Link>
-            <Link 
-              href="/projects" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+            </ScrollLink>
+            <ScrollLink to="projects" className='m-2' smooth={true} duration={500} onClick={handleNavClick}>
               Projects
-            </Link>
-            <Link 
-              href="/contact" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+            </ScrollLink>
+            <ScrollLink to="contact" className='m-2 mb-5' smooth={true} duration={500} onClick={handleNavClick}>
               Contact
-            </Link>
+            </ScrollLink>
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 border border-solid border-white/[1] w-min px-3 py-2 rounded-full text-base font-medium text-white-700"
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2 border border-solid border-white/[1] w-min px-3 py-2 rounded-full text-base font-medium text-white-700 mb-2"
             >
               <Image
                 src="/file.svg"

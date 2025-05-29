@@ -1,78 +1,66 @@
 'use client';
 
-/*import Image from "next/image";*/
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from 'react';
+import Lenis from '@studio-freight/lenis';
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
 
 export default function Home() {
-  return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-black">
-      <main className="flex flex-col gap-8 max-w-4xl">
-        <motion.section 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="hero-section font-[family-name:var(--font-montserrat)]"
-        >
-          <div className="hero-content max-w-sm">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              className="text-content flex flex-col"
-            >
-              <motion.h1 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-4xl font-bold mb-2"
-              >
-                Meet John DeFalco
-              </motion.h1>
-              <motion.h2 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="text-2xl mb-4"
-              >
-                Front End Web Developer
-              </motion.h2>
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="text-lg mb-6"
-              >
-                I&apos;m a front end developer with a passion for creating beautiful and functional websites. 
-                I&apos;m currently working as a front end developer at Catalyst Brands.
-              </motion.p>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                className="cta-buttons flex gap-4"
-              >
-                <Link href="/projects" className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
-                  View Projects
-                </Link>
-                <Link href="/contact" className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
-                  Contact Me
-                </Link>
-              </motion.div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-              className="image-content"
-            >
-              {/*<Image src="/headshot.jpg" alt="Your Name" />*/}
-            </motion.div>
-          </div>
-        </motion.section>
-      </main>
+  const lenisRef = useRef<Lenis | null>(null);
 
-      
-    </div>
+  useEffect(() => {
+    // Prevent scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    
+    // Force scroll to top
+    window.scrollTo(0, 0);
+    
+    // Small delay to ensure scroll position is set
+    setTimeout(() => {
+      lenisRef.current = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        touchMultiplier: 2,
+        infinite: false,
+        wheelMultiplier: 1,
+      });
+
+      function raf(time: number) {
+        lenisRef.current?.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    }, 100);
+
+    return () => {
+      lenisRef.current?.destroy();
+    };
+  }, []);
+
+  return (
+    <main className="min-h-screen overflow-x-hidden relative m-auto max-w-7xl">
+      <Navbar />
+      <section id="home" className="min-h-screen sm:mt-5 mt-15">
+        <Hero />
+      </section>
+      <section id="about" className="min-h-screen sm:pt-5 pt-15">
+        <About />
+      </section>
+      <section id="projects" className="min-h-screen sm:pt-5 pt-15">
+        <Projects />
+      </section>
+      <section id="contact" className="min-h-screen sm:pt-5 pt-15">
+        <Contact />
+      </section>
+    </main>
   );
 }
