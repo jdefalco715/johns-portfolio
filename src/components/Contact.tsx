@@ -98,12 +98,12 @@ export default function Contact() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
                         {/* Left Column - Contact Information */}
                         <div className="space-y-6">
-                            <p className="text-lg">
+                            <p className="text-md">
                                 I&apos;m always looking to learn more, and I&apos;m always looking to help. 
                                 If you have any questions, please don&apos;t hesitate to reach out.
                             </p>
 
-                            <p className="text-lg">
+                            <p className="text-md">
                                 Additionally if you have any recommendations for my website, please let me know!
                                 Feedback is always welcome!
                             </p>

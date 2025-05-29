@@ -12,22 +12,34 @@ export default function Home() {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    lenisRef.current = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      touchMultiplier: 2,
-      infinite: false,
-    });
-
-    function raf(time: number) {
-      lenisRef.current?.raf(time);
-      requestAnimationFrame(raf);
+    // Prevent scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
     }
+    
+    // Force scroll to top
+    window.scrollTo(0, 0);
+    
+    // Small delay to ensure scroll position is set
+    setTimeout(() => {
+      lenisRef.current = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        touchMultiplier: 2,
+        infinite: false,
+        wheelMultiplier: 1,
+      });
 
-    requestAnimationFrame(raf);
+      function raf(time: number) {
+        lenisRef.current?.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    }, 100);
 
     return () => {
       lenisRef.current?.destroy();
@@ -35,18 +47,18 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <main className="min-h-screen overflow-x-hidden relative m-auto max-w-7xl">
       <Navbar />
-      <section id="home" className="">
+      <section id="home" className="min-h-screen sm:mt-5 mt-15">
         <Hero />
       </section>
-      <section id="about" className="">
+      <section id="about" className="min-h-screen sm:pt-5 pt-15">
         <About />
       </section>
-      <section id="projects" className="">
+      <section id="projects" className="min-h-screen sm:pt-5 pt-15">
         <Projects />
       </section>
-      <section id="contact" className="">
+      <section id="contact" className="min-h-screen sm:pt-5 pt-15">
         <Contact />
       </section>
     </main>

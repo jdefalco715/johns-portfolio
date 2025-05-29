@@ -27,9 +27,17 @@ export default function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleNavClick = () => {
+    closeMobileMenu();
+  };
+
   return (
     <nav 
-      className={`sticky top-0 z-50 transition-all duration-200 ${ isScrolled ? 'bg-white/40 backdrop-blur-sm shadow-sm' : 'bg-transparent' }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 font-[family-name:var(--font-geist-sans)] ${ isScrolled ? 'bg-white/40 backdrop-blur-sm shadow-sm' : 'bg-transparent' }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
@@ -40,24 +48,24 @@ export default function Navbar() {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <ScrollLink to="home" smooth={true} duration={500}>
+          <div className="hidden md:flex items-center space-x-8 text-base text-white">
+            <ScrollLink to="home" smooth={true} duration={500} className='cursor-pointer hover:text-gray-200' offset={-20}>
               Home
             </ScrollLink>
-            <ScrollLink to="about" smooth={true} duration={500}>
+            <ScrollLink to="about" smooth={true} duration={500} className='cursor-pointer hover:text-gray-200'>
               About
             </ScrollLink>
-            <ScrollLink to="projects" smooth={true} duration={500}>
+            <ScrollLink to="projects" smooth={true} duration={500} className='cursor-pointer hover:text-gray-200'>
               Projects
             </ScrollLink>
-            <ScrollLink to="contact" smooth={true} duration={500}>
+            <ScrollLink to="contact" smooth={true} duration={500} className='cursor-pointer hover:text-gray-200'>
               Contact
             </ScrollLink>
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors px-4 py-2 hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent"
+              className="flex items-center gap-2 rounded-full cursor-pointer border border-solid border-black/[.08] dark:border-white/[.145] transition-colors px-4 py-2 hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent"
             >
               <Image
                 src="/file.svg"
@@ -88,19 +96,27 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* Mobile Menu Backdrop */}
+        {isMobileMenuOpen && (
+          <div 
+            className="fixed inset-0 z-[100]"
+            onClick={closeMobileMenu}
+          />
+        )}
+
         {/* Mobile Menu Dropdown */}
-        <div className={`md:hidden fixed inset-x-0 top-16 z-[60] ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'} transition-all duration-300 ease-in-out`}>
+        <div className={`md:hidden fixed inset-x-0 top-16 z-[101] ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'} transition-all duration-300 ease-in-out`}>
           <div className="flex flex-col px-2 pt-2 pb-3 space-y-1 sm:px-3 rounded-lg bg-white dark:bg-black shadow-lg">
-            <ScrollLink to="home" className='m-2' smooth={true} duration={500}>
+            <ScrollLink to="home" className='m-2' smooth={true} duration={500} onClick={handleNavClick} offset={-90}>
               Home
             </ScrollLink>
-            <ScrollLink to="about" className='m-2' smooth={true} duration={500}>
+            <ScrollLink to="about" className='m-2' smooth={true} duration={500} onClick={handleNavClick}>
               About
             </ScrollLink>
-            <ScrollLink to="projects" className='m-2' smooth={true} duration={500}>
+            <ScrollLink to="projects" className='m-2' smooth={true} duration={500} onClick={handleNavClick}>
               Projects
             </ScrollLink>
-            <ScrollLink to="contact" className='m-2 mb-5' smooth={true} duration={500}>
+            <ScrollLink to="contact" className='m-2 mb-5' smooth={true} duration={500} onClick={handleNavClick}>
               Contact
             </ScrollLink>
             <a
