@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 /*import { useState } from 'react';*/
 
 export default function Contact() {
+    const [sectionRef, isIntersecting] = useIntersectionObserver();
+
     /*const [errors, setErrors] = useState({
         name: '',
         subject: '',
@@ -88,8 +91,9 @@ export default function Contact() {
         <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
             <main className="flex flex-col gap-8 max-w-6xl">
                 <motion.section 
+                    ref={sectionRef}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    animate={isIntersecting ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className="space-y-6"
                 >
@@ -98,12 +102,12 @@ export default function Contact() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
                         {/* Left Column - Contact Information */}
                         <div className="space-y-6">
-                            <p className="text-lg">
+                            <p className="text-md">
                                 I&apos;m always looking to learn more, and I&apos;m always looking to help. 
                                 If you have any questions, please don&apos;t hesitate to reach out.
                             </p>
 
-                            <p className="text-lg">
+                            <p className="text-md">
                                 Additionally if you have any recommendations for my website, please let me know!
                                 Feedback is always welcome!
                             </p>
@@ -117,7 +121,7 @@ export default function Contact() {
                                 </li>
                                 <li className="flex items-center gap-3">
                                     <FaPhone className="text-xl" />
-                                    <a href="tel:+2014210630" className="hover:text-blue-600 transition-colors">
+                                    <a href="tel:+12014210630" className="hover:text-blue-600 transition-colors">
                                         (201) 421-0630
                                     </a>
                                 </li>
