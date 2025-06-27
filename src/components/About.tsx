@@ -89,6 +89,15 @@ export default function About() {
             </div>
 
             <div className="space-y-4 lg:border-l lg:border-white/10 lg:pl-12">
+            
+              <h2 className="text-2xl font-semibold mt-8 mb-4">Certifications</h2>
+
+              <a href="https://www.credly.com/badges/c91a39d6-b79b-44e8-9495-182422c6ecc6" target="_blank" rel="noopener noreferrer" className="text-md relative group">
+                <span className="relative">
+                  AWS Cloud Practitioner - Foundational | 2025
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+              </a>
               
               <h2 className="text-2xl font-semibold mt-8 mb-4">What I&apos;m Learning</h2>
 
