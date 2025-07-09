@@ -43,7 +43,7 @@ export default function Hero() {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="text-lg mb-6"
               >
-                I&apos;m a front end developer with a passion for creating beautiful and functional websites. 
+                I&apos;m a front end developer with a passion for creating responsive and functional websites. 
                 Currently working for Catalyst Brands.
               </motion.p>
               <motion.div 
@@ -52,10 +52,10 @@ export default function Hero() {
                 transition={{ duration: 0.5, delay: 1 }}
                 className="cta-buttons flex gap-4"
               >
-                <ScrollLink to="projects" smooth={true} duration={500} className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
+                <ScrollLink to="projects" smooth={true} duration={500} className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 hover:cursor-pointer">
                   View Projects
                 </ScrollLink>
-                <ScrollLink to="contact" smooth={true} duration={500} className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
+                <ScrollLink to="contact" smooth={true} duration={500} className="rounded-full border border-solid border-black/[.08] transition-colors flex items-center justify-center hover:bg-[#383838] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 hover:cursor-pointer">
                   Contact Me
                 </ScrollLink>
               </motion.div>

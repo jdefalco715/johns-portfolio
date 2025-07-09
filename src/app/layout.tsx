@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html 
       lang="en"
-      className=""
+      className="dark"
     >
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth`}

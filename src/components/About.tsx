@@ -63,6 +63,7 @@ export default function About() {
                     <li>JavaScript</li>
                     <li>TypeScript</li>
                     <li>React / Next.js</li>
+                    <li>SCSS / SASS</li>
                     <li>Tailwind CSS</li>
                   </ul>
                 </div>
@@ -102,12 +103,12 @@ export default function About() {
               <h2 className="text-2xl font-semibold mt-8 mb-4">What I&apos;m Learning</h2>
 
               <p className="text-md">
-                I&apos;m currently studying for an AWS Cloud Practitioner Foundation certification, with plans to pursue a Developer Associate certification in the future. 
+                I&apos;m currently studying for an AWS Certified Developer Associate certification. 
                 Cloud Engineering is a field I&apos;m very interested in, and I&apos;m looking forward to learning more about it.
               </p>
 
               <p className="text-md">
-                If there&apos;s anything I&apos;m not familiar with, I&apos;m always looking to learn more. If you have any recommendations, please let me know on my contact page!
+                If there&apos;s anything I&apos;m not familiar with that you think I should know, I&apos;m always looking to learn more. If you have any recommendations, please let me know through my contact page!
               </p>
 
               <h2 className="text-2xl font-semibold mt-8 mb-4">What I Love</h2>
@@ -115,7 +116,7 @@ export default function About() {
               <p className="text-md">
                 Outside of work, I enjoy cooking, reading, and spending time with my family and friends. 
                 I&apos;m a big skier and snowboarder and try to hit the slopes as much as possible. 
-                I also enjoy playing golf, traveling, and going to concerts. 
+                I also enjoy playing golf, practicing my guitar, and playing video games. 
               </p>
             </div>
           </motion.div>
