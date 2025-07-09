@@ -195,7 +195,7 @@ export default function Contact() {
                                     type="submit"
                                     disabled={isSubmitting}
                                     className={`w-full bg-blue-600 text-white py-2 px-4 rounded-md transition-colors ${
-                                        isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+                                        isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#383838] hover:cursor-pointer'
                                     }`}
                                 >
                                     {isSubmitting ? 'Sending...' : 'Send Message'}

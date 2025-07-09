@@ -65,7 +65,7 @@ export default function Navbar() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full cursor-pointer border border-solid border-black/[.08] dark:border-white/[.145] transition-colors px-4 py-2 hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent"
+              className="flex items-center gap-2 rounded-full cursor-pointer border border-solid border-black/[.08] dark:border-white/[.145] transition-colors px-4 py-2 hover:bg-[#383838] hover:border-transparent hover:cursor-pointer"
             >
               <Image
                 src="/file.svg"
@@ -123,7 +123,7 @@ export default function Navbar() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 border border-solid border-white/[1] w-min px-3 py-2 rounded-full text-base font-medium text-white-700 mb-2"
+              className="flex items-center gap-2 border border-solid border-white/[1] w-min px-3 py-2 rounded-full text-base font-medium text-white-700 mb-2 hover:cursor-pointer"
             >
               <Image
                 src="/file.svg"
