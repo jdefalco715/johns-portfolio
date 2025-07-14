@@ -14,12 +14,12 @@ export default function Hero() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="hero-section font-[family-name:var(--font-montserrat)]"
         >
-          <div className="hero-content max-w-sm">
+          <div className="hero-content max-w-md">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              className="text-content flex flex-col"
+              className="text-content flex flex-col bg-gray-400/40 backdrop-blur-sm p-8 rounded-lg"
             >
               <motion.h1 
                 initial={{ opacity: 0 }}

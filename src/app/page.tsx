@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import { BackgroundImage } from "@/components/BackgroundImage";
 
 export default function Home() {
   const lenisRef = useRef<Lenis | null>(null);
@@ -47,20 +48,23 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen overflow-x-hidden relative m-auto max-w-7xl">
-      <Navbar />
-      <section id="home" className="min-h-screen sm:mt-5 mt-15">
-        <Hero />
-      </section>
-      <section id="about" className="min-h-screen sm:pt-5 pt-15">
-        <About />
-      </section>
-      <section id="projects" className="min-h-screen sm:pt-5 pt-15">
-        <Projects />
-      </section>
-      <section id="contact" className="min-h-screen sm:pt-5 pt-15">
-        <Contact />
-      </section>
-    </main>
+    <>
+      <BackgroundImage />
+      <main className="min-h-screen overflow-x-hidden relative m-auto max-w-7xl">
+        <Navbar />
+        <section id="home" className="min-h-screen sm:mt-5 mt-15">
+          <Hero />
+        </section>
+        <section id="about" className="min-h-screen sm:pt-5 pt-15">
+          <About />
+        </section>
+        <section id="projects" className="min-h-screen sm:pt-5 pt-15">
+          <Projects />
+        </section>
+        <section id="contact" className="min-h-screen sm:pt-5 pt-15">
+          <Contact />
+        </section>
+      </main>
+    </>
   );
 }
