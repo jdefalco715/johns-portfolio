@@ -1,78 +1,68 @@
-'use client';
+import { Fragment } from "react";
+import { HERO_INTRO, PROFILE, SPEC_SHEET } from "@/data/content";
+import Blueprint from "./Blueprint";
 
-/*import Image from "next/image";*/
-import { motion } from "framer-motion";
-import { Link as ScrollLink } from 'react-scroll';
+const rise = (duration: string, delay: string): React.CSSProperties => ({
+  ["--rise-duration" as string]: duration,
+  ["--rise-delay" as string]: delay,
+});
 
 export default function Hero() {
   return (
-    <div className="p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="flex flex-col gap-8 max-w-4xl">
-        <motion.section 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="hero-section font-[family-name:var(--font-montserrat)]"
-        >
-          <div className="hero-content max-w-sm">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              className="text-content flex flex-col"
-            >
-              <motion.h1 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-4xl font-bold mb-2"
-              >
-                Meet John DeFalco
-              </motion.h1>
-              <motion.h2 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="text-2xl mb-4"
-              >
-                Front End Web Developer
-              </motion.h2>
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="text-lg mb-6"
-              >
-                I&apos;m a front end developer with a passion for creating responsive and functional websites. 
-                Currently working for Catalyst Brands.
-              </motion.p>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                className="cta-buttons flex gap-4"
-              >
-                <ScrollLink to="projects" smooth={true} duration={500} className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 hover:cursor-pointer">
-                  View Projects
-                </ScrollLink>
-                <ScrollLink to="contact" smooth={true} duration={500} className="rounded-full border border-solid border-black/[.08] transition-colors flex items-center justify-center hover:bg-[#383838] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 hover:cursor-pointer">
-                  Contact Me
-                </ScrollLink>
-              </motion.div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-              className="image-content"
-            >
-              {/*<Image src="/headshot.jpg" alt="Your Name" />*/}
-            </motion.div>
-          </div>
-        </motion.section>
+    <section id="top" className="hero wrap">
+      <div>
+        <p className="speclabel hero-availability hero-anim" style={rise(".7s", "0s")}>
+          <span className="hero-dot" />
+          {PROFILE.location} — {PROFILE.availability}
+        </p>
+
+        <h1 className="hero-heading">
+          <span className="hero-anim" style={rise(".8s", ".08s")}>Front end</span>
+          <span className="accent hero-anim" style={rise(".8s", ".18s")}>developer</span>
+        </h1>
+
+        <div className="hero-divider" />
+
+        <p className="hero-intro hero-anim" style={rise(".8s", ".38s")}>
+          {HERO_INTRO}
+        </p>
+
+        <div className="hero-actions hero-anim" style={rise(".8s", ".46s")}>
+          <Blueprint
+            as="a"
+            href="#projects"
+            className="btn btn-primary"
+            style={{ padding: "11px 22px", letterSpacing: ".08em", textTransform: "uppercase" }}
+          >
+            View projects
+          </Blueprint>
+          <a
+            href="#contact"
+            className="btn btn-secondary"
+            style={{ padding: "11px 22px", letterSpacing: ".08em", textTransform: "uppercase" }}
+          >
+            Get in touch
+          </a>
+        </div>
       </div>
 
-      
-    </div>
+      <Blueprint className="spec-sheet hero-anim" style={rise(".9s", ".5s")}>
+        <p className="speclabel spec-sheet-title">Spec sheet</p>
+        <dl>
+          {SPEC_SHEET.map(([key, value]) => (
+            <Fragment key={key}>
+              <dt className="speclabel">{key}</dt>
+              <dd>{value}</dd>
+            </Fragment>
+          ))}
+        </dl>
+        <div className="spec-sheet-divider" />
+        <div className="spec-sheet-links">
+          <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href={PROFILE.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={`mailto:${PROFILE.email}`}>Email</a>
+        </div>
+      </Blueprint>
+    </section>
   );
 }
