@@ -20,11 +20,11 @@ export const PROFILE = {
 };
 
 export const HERO_INTRO =
-  "Five-plus years translating Figma designs into polished, production-ready interfaces across high-traffic ecommerce platforms. Currently Lead Front End Developer at Catalyst Brands, owning customer-facing content for Lucky Brand, Aeropostale, and Nautica.";
+  "Five-plus years translating Figma designs into polished, production-ready interfaces across high-traffic ecommerce platforms. Currently a Front End Developer at Catalyst Brands, owning customer-facing content for Lucky Brand, Aeropostale, and Nautica.";
 
 /** The hero "spec sheet" plate — rendered as a <dl>, key left / value right. */
 export const SPEC_SHEET: [string, string][] = [
-  ["Role", "Lead Front End Developer"],
+  ["Role", "Front End Developer"],
   ["Company", "Catalyst Brands"],
   ["Experience", "5+ years"],
   ["Focus", "Ecommerce front end"],
@@ -50,7 +50,7 @@ export const ABOUT_ASIDE =
 
 export const ROLES = [
   {
-    title: "Lead Front End Developer — Catalyst Brands",
+    title: "Front End Developer — Catalyst Brands",
     years: "2025 — Present",
     brands: ["Lucky Brand", "Aeropostale", "Nautica"],
     bullets: [

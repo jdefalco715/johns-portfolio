@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Image from "next/image";
 import { HERO_INTRO, PROFILE, SPEC_SHEET } from "@/data/content";
 import Blueprint from "./Blueprint";
 
@@ -16,9 +17,13 @@ export default function Hero() {
           {PROFILE.location} — {PROFILE.availability}
         </p>
 
+        <div className="hero-name hero-anim" style={rise(".8s", ".06s")}>
+          {PROFILE.name}
+        </div>
+
         <h1 className="hero-heading">
-          <span className="hero-anim" style={rise(".8s", ".08s")}>Front end</span>
-          <span className="accent hero-anim" style={rise(".8s", ".18s")}>developer</span>
+          <span className="hero-anim" style={rise(".8s", ".14s")}>Front end</span>
+          <span className="accent hero-anim" style={rise(".8s", ".24s")}>developer</span>
         </h1>
 
         <div className="hero-divider" />
@@ -47,6 +52,16 @@ export default function Hero() {
       </div>
 
       <Blueprint className="spec-sheet hero-anim" style={rise(".9s", ".5s")}>
+        <div className="duotone spec-sheet-photo">
+          <Image
+            src="/headshot.png"
+            alt="John DeFalco"
+            fill
+            priority
+            sizes="(max-width: 860px) 100vw, 480px"
+            className="spec-sheet-photo-img"
+          />
+        </div>
         <p className="speclabel spec-sheet-title">Spec sheet</p>
         <dl>
           {SPEC_SHEET.map(([key, value]) => (
