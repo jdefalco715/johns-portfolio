@@ -1,30 +1,35 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Montserrat } from "next/font/google";
+import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const body = Barlow({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-body-src",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const heading = Barlow_Condensed({
   subsets: ["latin"],
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-heading-src",
 });
 
 export const metadata: Metadata = {
   title: "John DeFalco",
-  description: "Portfolio website of John DeFalco",
+  description: "Portfolio of John DeFalco, front end developer specializing in ecommerce interfaces.",
   icons: {
     icon: "/jd-logo.svg",
     apple: "/jd-logo.svg",
   },
 };
+
+const noFlashThemeScript = `
+  (function(){try{
+    var t = localStorage.getItem('jd-theme') ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = t;
+  }catch(e){}})();
+`;
 
 export default function RootLayout({
   children,
@@ -32,13 +37,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html 
-      lang="en"
-      className="dark"
-    >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth`}
-      >
+    <html lang="en" className={`${body.variable} ${heading.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: noFlashThemeScript }} />
+      </head>
+      <body className="antialiased">
+        <div className="grain" aria-hidden="true" />
         {children}
       </body>
     </html>
