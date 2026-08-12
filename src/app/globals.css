@@ -140,6 +140,18 @@ a:hover {
   border: 1px solid var(--color-divider);
   border-radius: 0;
 }
+.duotone {
+  position: relative;
+  overflow: hidden;
+}
+.duotone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent);
+  mix-blend-mode: color;
+  pointer-events: none;
+}
 .blueprint > .corner {
   position: absolute;
   width: 11px;
@@ -527,7 +539,7 @@ textarea.input {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
   gap: clamp(32px, 5vw, 72px);
-  align-items: end;
+  align-items: start;
   padding-block: clamp(56px, 9vw, 120px) clamp(48px, 7vw, 90px);
 }
 
@@ -543,6 +555,14 @@ textarea.input {
   flex: none;
   background: var(--color-accent);
   animation: blink 2.4s ease-in-out infinite;
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2vw, 26px);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
 }
 
 .hero-heading {
@@ -587,6 +607,17 @@ textarea.input {
 
 .spec-sheet {
   padding: 20px 22px;
+}
+.spec-sheet-photo {
+  margin: -19px -21px 16px;
+  aspect-ratio: 16 / 10;
+  max-height: 280px;
+  border-bottom: 1px solid var(--color-divider);
+}
+.spec-sheet-photo-img {
+  object-fit: cover;
+  object-position: center 12%;
+  filter: grayscale(1) contrast(1.04);
 }
 .spec-sheet-title {
   margin-bottom: 14px;
@@ -1005,6 +1036,9 @@ textarea.input {
   .hero {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+  .spec-sheet-photo {
+    max-height: 220px;
   }
   .contact-inner {
     grid-template-columns: 1fr;
